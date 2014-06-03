@@ -67,7 +67,7 @@ var xhr = new XMLHttpRequest() || new ActiveXObject("Msxml2.XMLHTTP")
 || new ActiveXObject("Microsoft.XMLHTTP");
 xhr.open("GET","Restaurante.geojson",false); xhr.send(null);
 var puntos = JSON.parse(xhr.responseText);
-xhr.open("GET","calles.geojson",false); xhr.send(null);
+xhr.open("GET","Calles.geojson",false); xhr.send(null);
 var lineas = JSON.parse(xhr.responseText);
 xhr.open("GET","Lugares.geojson",false); xhr.send(null);
 var poligonos = JSON.parse(xhr.responseText);
