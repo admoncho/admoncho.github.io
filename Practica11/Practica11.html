@@ -1,0 +1,62 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<title>Mapa Web</title>
+<link rel="stylesheet"
+href="http://cdn.leafletjs.com/leaflet-0.5/leaflet.css"/>
+<!--[if lte IE 8]>
+<link rel="stylesheet"
+href="http://cdn.leafletjs.com/leaflet-0.5/leaflet.ie.css" />
+<![endif]-->
+<script
+src="http://cdn.leafletjs.com/leaflet-0.5/leaflet.js"></script>
+<style type="text/css">
+#map { width: 600px; height: 400px }
+</style>
+</head>
+<body>
+<div id="map"></div>
+<script type="text/javascript">
+function onEachFeature(feature, layer) {
+layer.bindPopup("Nombre: "+feature.properties.Nombre);
+};
+var xhrCalles =  new XMLHttpRequest();
+xhrCalles.open('GET','Calles.geojson',false);
+xhrCalles.send(null);
+var dataCalles = JSON.parse(xhrCalles.responseText);
+var styleCalles = {
+"color": "#ffff00",
+"weight": 5,
+"opacity": 0.65
+};
+var xhrLugares =  new XMLHttpRequest();
+xhrLugares.open('GET','Lugares.geojson',false);
+xhrLugares.send(null);
+var dataLugares = JSON.parse(xhrLugares.responseText);
+var styleLugares = {
+	"color" : "#00ff00",
+	"weight":1,
+	"opacity":1
+};
+var xhrQuebrada = new XMLHttpRequest();
+xhrQuebrada.open('GET','Quebrada.geojson',false);
+xhrQuebrada.send(null);
+var dataQuebrada = JSON.parse(xhrQuebrada.responseText);
+var styleQuebrada = {
+	"color" : "#000eff",
+	"weight":5,
+	"opacity":0.65
+};
+var map = L.map('map').setView([9.861707,-83.9188848],16.5);
+L.geoJson(dataCalles, {
+style: styleCalles, onEachFeature: onEachFeature
+}).addTo(map);
+L.geoJson(dataLugares, {
+style: styleLugares, onEachFeature: onEachFeature
+}).addTo(map);
+L.geoJson(dataQuebrada, {
+style: styleQuebrada, onEachFeature: onEachFeature
+}).addTo(map);
+</script>
+</body>
+</html>

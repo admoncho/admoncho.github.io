@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+                                                                                
+"features": [
+{ "type": "Feature", "properties": { "id": null, "Nombre": "Quebrada" }, "geometry": { "type": "LineString", "coordinates": [ [ -83.919660698930755, 9.863888251427783 ], [ -83.91894629965725, 9.863500780635373 ], [ -83.919176360440247, 9.86197511439026 ], [ -83.91911581812893, 9.861018545871497 ], [ -83.918437744242212, 9.859468662701858 ] ] } }
+]
+}
